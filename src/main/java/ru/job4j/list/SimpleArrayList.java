@@ -28,9 +28,7 @@ public class SimpleArrayList<T> implements List<T> {
     @Override
     public T set(int index, T newValue) {
         Objects.checkIndex(index, size);
-        increaseInSize();
         T oldValue = container[index];
-        System.arraycopy(container, index, container, index + 1, size - index);
         container[index] = newValue;
         modCount++;
         return oldValue;
