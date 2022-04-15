@@ -32,10 +32,10 @@ public class SimpleMap<K, V> implements Map<K, V> {
 
     @Override
     public boolean put(K key, V value) {
-        int index = indexFor(hash(key.hashCode()));
         if (count >= capacity * LOAD_FACTOR) {
             expand();
         }
+        int index = indexFor(hash(key.hashCode()));
         boolean rsl = table[index] == null;
         if (rsl) {
             table[index] = new MapEntry<>(key, value);
