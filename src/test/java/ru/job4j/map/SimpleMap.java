@@ -32,33 +32,35 @@ public class SimpleMap<K, V> implements Map<K, V> {
 
     @Override
     public boolean put(K key, V value) {
-        boolean rsl = table[indexFor(hash(key.hashCode()))] == null;
+        int index = indexFor(hash(key.hashCode()));
+        if (count >= capacity * LOAD_FACTOR) {
+            expand();
+        }
+        boolean rsl = table[index] == null;
         if (rsl) {
-            table[indexFor(hash(key.hashCode()))] = new MapEntry<>(key, value);
+            table[index] = new MapEntry<>(key, value);
             count++;
             modCount++;
-            if (count >= capacity * LOAD_FACTOR) {
-                expand();
-            }
         }
         return rsl;
     }
 
     @Override
     public V get(K key) {
-        if (table[indexFor(hash(key.hashCode()))] != null
-                && table[indexFor(hash(key.hashCode()))].key.equals(key)) {
-            return table[indexFor(hash(key.hashCode()))].value;
+        V rsl = null;
+        int index = indexFor(hash(key.hashCode()));
+        if (table[index] != null && table[index].key.equals(key)) {
+            rsl = table[index].value;
         }
-        return null;
+        return rsl;
     }
 
     @Override
     public boolean remove(K key) {
-        boolean rsl = table[indexFor(hash(key.hashCode()))] != null
-                && table[indexFor(hash(key.hashCode()))].key.equals(key);
+        int index = indexFor(hash(key.hashCode()));
+        boolean rsl = table[index] != null && table[index].key.equals(key);
         if (rsl) {
-            table[indexFor(hash(key.hashCode()))] = null;
+            table[index] = null;
             count--;
             modCount++;
         }
