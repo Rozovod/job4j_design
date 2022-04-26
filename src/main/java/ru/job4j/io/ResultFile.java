@@ -4,7 +4,6 @@ import java.io.FileOutputStream;
 
 public class ResultFile {
     public static void main(String[] args) {
-
         try (FileOutputStream out = new FileOutputStream("result.txt")) {
             for (int row = 1; row <= 10; row++) {
                 for (int cell = 1; cell <= 10; cell++) {
