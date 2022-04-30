@@ -26,12 +26,21 @@ public class ConfigTest {
     }
 
     @Test
+    public void whenPairWithValueEqualsSomething() {
+        String path = "./data/pair_with_value_equals_something.properties";
+        Config config = new Config(path);
+        config.load();
+        assertThat(config.value("key1"),
+                is("value=1"));
+    }
+
+    @Test
     public void whenPairWithValueEquals() {
         String path = "./data/pair_with_value_equals.properties";
         Config config = new Config(path);
         config.load();
         assertThat(config.value("key1"),
-                is("value=1"));
+                is("value="));
     }
 
     @Test(expected = IllegalArgumentException.class)

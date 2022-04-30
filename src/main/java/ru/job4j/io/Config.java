@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.StringJoiner;
 
 public class Config {
@@ -33,14 +34,15 @@ public class Config {
         return values.get(key);
     }
 
-    public boolean correctPattern(String line) {
-        if (line.startsWith("=") || line.endsWith("=")
-                || !line.contains("=") || line.matches("[=]+")) {
-            throw new IllegalArgumentException();
+    private boolean correctPattern(String line) {
+        String[] ln = line.split("=", 2);
+        if (!line.contains("=") || ln[0].isEmpty() || ln[1].isEmpty()
+                || line.matches("[=]+")) {
+            throw new IllegalArgumentException("Нарушение шаблона ключ=значение");
         }
-        return !line.startsWith("=") || !line.endsWith("=")
-                || line.contains("=") || !line.matches("[=]+");
+        return line.contains("=") || !line.matches("[=]+");
     }
+
 
     @Override
     public String toString() {
@@ -55,5 +57,11 @@ public class Config {
 
     public static void main(String[] args) {
         System.out.println(new Config("app.properties"));
+        String line = "=key";
+        String[] lineArr = line.split("=", 2);
+        for (String ln : lineArr) {
+            System.out.println(ln);
+        }
+        System.out.println(lineArr.length);
     }
 }
