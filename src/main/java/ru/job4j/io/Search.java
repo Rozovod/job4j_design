@@ -27,11 +27,8 @@ public class Search {
         if (args.length != 2) {
             throw new IllegalArgumentException("Invalid arguments");
         }
-        if (!file.exists()) {
-            throw new IllegalArgumentException("First parameter is not a path");
-        }
-        if (!file.isDirectory()) {
-            throw new IllegalArgumentException("First parameter is not a directory");
+        if (!file.exists() || !file.isDirectory()) {
+            throw new IllegalArgumentException("First parameter is not a path or not a directory");
         }
         if (!args[1].startsWith(".")) {
             throw new IllegalArgumentException("Second parameter is not the file extension");
