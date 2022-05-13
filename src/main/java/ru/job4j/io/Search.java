@@ -23,10 +23,10 @@ public class Search {
     }
 
     public static void validateArgs(String[] args) {
-        File file = new File(args[0]);
         if (args.length != 2) {
             throw new IllegalArgumentException("Invalid arguments");
         }
+        File file = new File(args[0]);
         if (!file.exists() || !file.isDirectory()) {
             throw new IllegalArgumentException("First parameter is not a path or not a directory");
         }
