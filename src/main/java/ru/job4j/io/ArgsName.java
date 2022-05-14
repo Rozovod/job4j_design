@@ -23,12 +23,12 @@ public class ArgsName {
     }
 
     private boolean validateArgs(String args) {
-        if (!args.startsWith("-") || !args.contains("=")
-                || args.startsWith("-=") || args.indexOf("=") == args.length() - 1) {
+        boolean rsl = args.startsWith("-") || args.contains("=")
+                || !args.startsWith("-=") || args.indexOf("=") != args.length() - 1;
+        if (!rsl) {
             throw new IllegalArgumentException("Нарушение шаблона -ключ=значение");
         }
-        return args.startsWith("-") || args.contains("=")
-                || !args.startsWith("-=") || args.indexOf("=") != args.length() - 1;
+        return rsl;
     }
 
     public static ArgsName of(String[] args) {
