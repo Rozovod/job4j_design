@@ -27,7 +27,8 @@ public class ArgsName {
                 || args.startsWith("-=") || args.indexOf("=") == args.length() - 1) {
             throw new IllegalArgumentException("Нарушение шаблона -ключ=значение");
         }
-        return args.startsWith("-") || args.contains("=");
+        return args.startsWith("-") || args.contains("=")
+                || !args.startsWith("-=") || args.indexOf("=") != args.length() - 1;
     }
 
     public static ArgsName of(String[] args) {
