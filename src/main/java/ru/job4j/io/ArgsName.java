@@ -23,15 +23,17 @@ public class ArgsName {
     }
 
     private boolean validateArgs(String args) {
-        String[] ln = args.split("=", 2);
         if (!args.startsWith("-") || !args.contains("=")
-                || ln[0].isEmpty() || ln[1].isEmpty()) {
+                || args.startsWith("-=") || args.indexOf("=") == args.length() - 1) {
             throw new IllegalArgumentException("Нарушение шаблона -ключ=значение");
         }
         return args.startsWith("-") || args.contains("=");
     }
 
     public static ArgsName of(String[] args) {
+        if (args.length == 0) {
+            throw new IllegalArgumentException("Параметры не введены. Введите параметры.");
+        }
         ArgsName names = new ArgsName();
         names.parse(args);
         return names;
