@@ -9,6 +9,20 @@ import java.util.zip.ZipOutputStream;
 
 public class Zip {
 
+    private static void validation(String[] args) {
+        if (args.length < 3) {
+            throw new IllegalArgumentException("Введены не все аргументы.");
+        }
+        ArgsName argsZip = ArgsName.of(args);
+        File file = new File(argsZip.get("d"));
+        if (!file.exists() || !file.isDirectory()) {
+            throw new IllegalArgumentException("Указанная директория не найдена");
+        }
+        if (!argsZip.get("e").startsWith(".")) {
+            throw new IllegalArgumentException("Неверное расширение файлов для исключения");
+        }
+    }
+
     public void packFiles(List<File> sources, File target) {
         try (ZipOutputStream zip = new ZipOutputStream(new BufferedOutputStream(new FileOutputStream(target)))) {
             for (File file : sources) {
@@ -23,14 +37,9 @@ public class Zip {
     }
 
     public static void main(String[] args) throws IOException {
-        if (args.length < 3) {
-            throw new IllegalArgumentException("Введены не все аргументы.");
-        }
+        validation(args);
         ArgsName argsZip = ArgsName.of(args);
         File file = new File(argsZip.get("d"));
-        if (!file.exists() || !file.isDirectory()) {
-            throw new IllegalArgumentException("Указанная директория не найдена");
-        }
         List<File> rslFile = new ArrayList<>();
         List<Path> rslPath = Search.search(file.toPath(), p -> !p.toFile().getName().endsWith(argsZip.get("e")));
         for (Path p : rslPath) {
