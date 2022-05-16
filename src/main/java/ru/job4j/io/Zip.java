@@ -23,11 +23,11 @@ public class Zip {
         }
     }
 
-    public void packFiles(List<File> sources, File target) {
+    public void packFiles(List<Path> sources, File target) {
         try (ZipOutputStream zip = new ZipOutputStream(new BufferedOutputStream(new FileOutputStream(target)))) {
-            for (File file : sources) {
-                zip.putNextEntry(new ZipEntry(file.getPath()));
-                try (BufferedInputStream out = new BufferedInputStream(new FileInputStream(file))) {
+            for (Path file : sources) {
+                zip.putNextEntry(new ZipEntry(file.toFile().getPath()));
+                try (BufferedInputStream out = new BufferedInputStream(new FileInputStream(file.toFile()))) {
                     zip.write(out.readAllBytes());
                 }
             }
@@ -40,12 +40,8 @@ public class Zip {
         validation(args);
         ArgsName argsZip = ArgsName.of(args);
         File file = new File(argsZip.get("d"));
-        List<File> rslFile = new ArrayList<>();
         List<Path> rslPath = Search.search(file.toPath(), p -> !p.toFile().getName().endsWith(argsZip.get("e")));
-        for (Path p : rslPath) {
-            rslFile.add(p.toFile().getAbsoluteFile());
-        }
         Zip zip = new Zip();
-        zip.packFiles(rslFile, new File(argsZip.get("d") + argsZip.get("o")));
+        zip.packFiles(rslPath, new File(argsZip.get("d") + argsZip.get("o")));
     }
 }
