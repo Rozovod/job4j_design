@@ -28,11 +28,11 @@ public class ConsoleChat {
         System.out.println(greetings);
         log.add(greetings);
         String question = in.nextLine();
-        while (!question.equals(OUT)) {
+        while (!OUT.equals(question)) {
             ioUserLog(question, log);
-            if (modOn && question.equals(STOP)) {
+            if (modOn && STOP.equals(question)) {
                 modOn = false;
-            } else if (!modOn && question.equals(CONTINUE)) {
+            } else if (!modOn && CONTINUE.equals(question)) {
                 ioBotLog(botAnswerList, log);
                 modOn = true;
             } else if (modOn) {
