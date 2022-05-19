@@ -61,15 +61,9 @@ public class CSVReader {
         ArgsName argsCsv = ArgsName.of(args);
         String path = argsCsv.get("path");
         File file = new File(path);
-        String[] ph = path.split("\\.", 2);
-        if (!file.exists() || !ph[1].endsWith("csv")) {
+        if (!file.exists() || !path.endsWith(".csv")) {
             throw new IllegalArgumentException(
                     "Указанный параметр path не существует или файл имеет неверный формат.");
-        }
-        String out = argsCsv.get("out");
-        File outFile = new File(out);
-        if (!Objects.equals("stdout", out) || !outFile.exists()) {
-            throw new IllegalArgumentException("Неверно введен параметр out.");
         }
     }
 
