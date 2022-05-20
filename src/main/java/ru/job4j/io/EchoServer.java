@@ -23,8 +23,10 @@ public class EchoServer {
                     String msg = msgLn[1];
                     if (Objects.equals("Exit", msg)) {
                         server.close();
+                    } else if (Objects.equals("Hello", msg)) {
+                        out.write("Hello".getBytes());
                     } else {
-                        out.write(msg.getBytes());
+                        out.write("What".getBytes());
                     }
                     out.flush();
                 }
