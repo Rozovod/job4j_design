@@ -2,6 +2,7 @@ package ru.job4j.serialization.json;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import org.json.JSONObject;
 
 public class Main {
     public static void main(String[] args) {
@@ -10,11 +11,16 @@ public class Main {
                 new Warranty(3, true), new String[] {"Case", "Protective glass"}
         );
 
-        final Gson gson = new GsonBuilder().create();
-        final String mobilePhoneJson = gson.toJson(mobilePhone);
-        System.out.println(mobilePhoneJson);
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("name", mobilePhone.getName());
+        jsonObject.put("model", mobilePhone.getModel());
+        jsonObject.put("memory", mobilePhone.getMemory());
+        jsonObject.put("headphoneJack", mobilePhone.isHeadphoneJack());
+        jsonObject.put("warranty", mobilePhone.getWarranty());
+        jsonObject.put("accessories", mobilePhone.getAccessories());
 
-        final MobilePhone mobilePhoneFromJson = gson.fromJson(mobilePhoneJson, MobilePhone.class);
-        System.out.println(mobilePhoneFromJson);
+        System.out.println(jsonObject.toString());
+
+        System.out.println(new JSONObject(mobilePhone).toString());
     }
 }

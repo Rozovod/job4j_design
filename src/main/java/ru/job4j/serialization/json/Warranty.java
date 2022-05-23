@@ -18,6 +18,14 @@ public class Warranty {
         this.paidRenewal = paidRenewal;
     }
 
+    public int getDate() {
+        return date;
+    }
+
+    public boolean isPaidRenewal() {
+        return paidRenewal;
+    }
+
     @Override
     public String toString() {
         return "Warranty{"

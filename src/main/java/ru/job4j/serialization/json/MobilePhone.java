@@ -39,6 +39,30 @@ public class MobilePhone {
         this.accessories = accessories;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public int getMemory() {
+        return memory;
+    }
+
+    public boolean isHeadphoneJack() {
+        return headphoneJack;
+    }
+
+    public Warranty getWarranty() {
+        return warranty;
+    }
+
+    public String[] getAccessories() {
+        return accessories;
+    }
+
     @Override
     public String toString() {
         return "MobilePhone{"
