@@ -14,7 +14,6 @@ public class Menu {
     public static final String TEXT_OF_POST = "Введите текст";
     public static final String DELETE = "Удаление всех постов";
     public static final String EXIT = "Конец работы";
-
     public static final String MENU = """
                 Введите 1 для создание поста.
                 Введите 2, чтобы создать определенное количество постов.
