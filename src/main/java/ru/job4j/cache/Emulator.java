@@ -37,9 +37,6 @@ public class Emulator {
             } else if (choice == GET_FROM_CACHE) {
                 System.out.println(FILE_GET);
                 String key = scanner.nextLine();
-                if (cache.get(key) == null) {
-                    cache.put(key, cache.load(key));
-                }
                 System.out.println(cache.get(key));
             } else {
                 run = false;
