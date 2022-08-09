@@ -7,6 +7,7 @@ public class Emulator {
     private static final int GET_FROM_CACHE = 2;
 
     private static final String MENU = """
+                Варианты дальнейших действий:
                 Введите 1, чтобы загрузить содержимое файла в кэш.
                 Введите 2, чтобы получить содержимое файла из кэша.
                 Введите любое другое число для выхода.
@@ -16,6 +17,7 @@ public class Emulator {
     public static final String DIR = "Введите адресс кэшируемой директории: ";
     public static final String FILE_ADD = "Введите имя кэшируемого файла: ";
     public static final String FILE_GET = "Введите имя файла, чтобы получить данные: ";
+    public static final String FILE_CONTENTS = "Содержимое файла: ";
     public static final String GOAL = "Готово";
     public static final String EXIT = "Конец работы";
 
@@ -37,6 +39,7 @@ public class Emulator {
             } else if (choice == GET_FROM_CACHE) {
                 System.out.println(FILE_GET);
                 String key = scanner.nextLine();
+                System.out.println(FILE_CONTENTS);
                 System.out.println(cache.get(key));
             } else {
                 run = false;
