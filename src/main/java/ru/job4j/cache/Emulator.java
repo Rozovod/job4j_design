@@ -32,7 +32,7 @@ public class Emulator {
     private void loadInCache() {
         System.out.println(FILE_ADD);
         String nameFile = scanner.nextLine();
-        cache.put(nameFile, cache.load(nameFile));
+        cache.put(nameFile, cache.get(nameFile));
         System.out.println(GOAL);
     }
 
