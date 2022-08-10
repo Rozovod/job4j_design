@@ -3,6 +3,8 @@ package ru.job4j.cache;
 import java.util.Scanner;
 
 public class Emulator {
+    private DirFileCache cache;
+    private static Scanner scanner = new Scanner(System.in);
     private static final int LOAD_IN_CACHE = 1;
     private static final int GET_FROM_CACHE = 2;
 
@@ -21,26 +23,37 @@ public class Emulator {
     public static final String GOAL = "Готово";
     public static final String EXIT = "Конец работы";
 
-    private static void start() {
-        Scanner scanner = new Scanner(System.in);
+    private void cachedDirectory() {
         System.out.println(DIR);
         String dir = scanner.nextLine();
-        DirFileCache cache = new DirFileCache(dir);
+        cache = new DirFileCache(dir);
+    }
+
+    private void loadInCache() {
+        System.out.println(FILE_ADD);
+        String nameFile = scanner.nextLine();
+        cache.put(nameFile, cache.load(nameFile));
+        System.out.println(GOAL);
+    }
+
+    private void getFromCache() {
+        System.out.println(FILE_GET);
+        String key = scanner.nextLine();
+        System.out.println(FILE_CONTENTS);
+        System.out.println(cache.get(key));
+    }
+
+    private void start() {
+        cachedDirectory();
         boolean run = true;
         while (run) {
             System.out.println(MENU);
             System.out.println(SELECT);
             int choice = Integer.parseInt(scanner.nextLine());
             if (choice == LOAD_IN_CACHE) {
-                System.out.println(FILE_ADD);
-                String nameFile = scanner.nextLine();
-                cache.put(nameFile, cache.load(nameFile));
-                System.out.println(GOAL);
+                loadInCache();
             } else if (choice == GET_FROM_CACHE) {
-                System.out.println(FILE_GET);
-                String key = scanner.nextLine();
-                System.out.println(FILE_CONTENTS);
-                System.out.println(cache.get(key));
+                getFromCache();
             } else {
                 run = false;
                 System.out.println(EXIT);
@@ -49,6 +62,7 @@ public class Emulator {
     }
 
     public static void main(String[] args) {
-        start();
+        Emulator emulator = new Emulator();
+        emulator.start();
     }
 }
