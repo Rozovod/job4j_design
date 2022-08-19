@@ -1,6 +1,7 @@
 package ru.job4j.template;
 
 import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 @Disabled
 class TempGeneratorTest {
 
-    @Disabled
+    @Test
     public void whenAllValid() {
         Generator generator = new TempGenerator();
         Map<String, String> args = new HashMap<>();
@@ -21,7 +22,7 @@ class TempGeneratorTest {
         assertThat(generator.produce(template, args)).isEqualTo("I am a Petr Arsentev, Who are you?");
     }
 
-    @Disabled
+    @Test
     public void whenMoreArguments() {
         Generator generator = new TempGenerator();
         Map<String, String> args = new HashMap<>();
@@ -32,7 +33,7 @@ class TempGeneratorTest {
         assertThrows(IllegalArgumentException.class, () -> generator.produce(template, args));
     }
 
-    @Disabled
+    @Test
     public void whenMoreElTemplate() {
         Generator generator = new TempGenerator();
         Map<String, String> args = new HashMap<>();
