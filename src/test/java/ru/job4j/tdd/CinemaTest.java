@@ -17,7 +17,6 @@ class CinemaTest {
         Account account = new AccountCinema();
         Cinema cinema = new Cinema3D();
         Calendar date = Calendar.getInstance();
-        date.set(2022, Calendar.AUGUST, 19, 19, 20);
         Ticket ticket = cinema.buy(account, 1, 1, date);
         assertThat(ticket).isNull();
     }
@@ -35,7 +34,6 @@ class CinemaTest {
         Account account = new AccountCinema();
         Cinema cinema = new Cinema3D();
         Calendar date = Calendar.getInstance();
-        date.set(2022, Calendar.AUGUST, 19, 19, 20);
         assertThrows(IllegalArgumentException.class, () -> cinema.buy(account, -1, 1, date));
     }
 
@@ -44,7 +42,6 @@ class CinemaTest {
         Account account = new AccountCinema();
         Cinema cinema = new Cinema3D();
         Calendar date = Calendar.getInstance();
-        date.set(2022, Calendar.AUGUST, 19, 19, 20);
         assertThrows(IllegalArgumentException.class, () -> cinema.buy(account, 1, -1, date));
     }
 
@@ -61,7 +58,6 @@ class CinemaTest {
         Account account = new AccountCinema();
         Cinema cinema = new Cinema3D();
         Calendar date = Calendar.getInstance();
-        date.set(2022, Calendar.AUGUST, 19, 19, 20);
         Ticket ticket = cinema.buy(account, 1, 1, date);
         assertThrows(IllegalArgumentException.class, () -> cinema.buy(account, 1, 1, date));
     }
