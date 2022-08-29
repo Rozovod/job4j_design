@@ -1,7 +1,6 @@
 package ru.job4j.design.srp;
 
 import org.junit.jupiter.api.Test;
-import ru.job4j.design.ocp.ReportJson;
 
 import java.util.Calendar;
 
