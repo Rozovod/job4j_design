@@ -1,13 +1,14 @@
 package ru.job4j.design.srp;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import ru.job4j.design.ocp.ReportJson;
 
 import java.util.Calendar;
 
 import static org.assertj.core.api.Assertions.*;
 import static ru.job4j.design.srp.ReportEngine.DATE_FORMAT;
 import static ru.job4j.design.srp.ReportEngine.SEPARATOR;
+import static ru.job4j.design.srp.ReportAccounting.CURRENCY;
 
 class ReportEngineTest {
 
@@ -63,7 +64,7 @@ class ReportEngineTest {
                 .append(worker.getName()).append(";")
                 .append(DATE_FORMAT.format(worker.getHired().getTime())).append(";")
                 .append(DATE_FORMAT.format(worker.getFired().getTime())).append(";")
-                .append((int) worker.getSalary()).append(" RUB.").append(";").append(SEPARATOR);
+                .append((int) worker.getSalary()).append(CURRENCY).append(";").append(SEPARATOR);
         assertThat(repAcc.generate(em -> true)).isEqualTo(expect.toString());
     }
 

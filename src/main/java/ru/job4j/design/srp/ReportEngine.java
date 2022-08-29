@@ -1,7 +1,6 @@
 package ru.job4j.design.srp;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.function.Predicate;
 
 public class ReportEngine implements Report {
@@ -25,17 +24,5 @@ public class ReportEngine implements Report {
                     .append(employee.getSalary()).append(";").append(SEPARATOR);
         }
         return text.toString();
-    }
-
-    public static void main(String[] args) {
-        MemStore store = new MemStore();
-        Calendar now = Calendar.getInstance();
-        store.add(new Employee("Ivan", now, now, 100));
-        store.add(new Employee("Petr", now, now, 200));
-        store.add(new Employee("Stas", now, now, 300));
-        Report engine = new ReportEngine(store);
-        System.out.println(engine.generate(em -> true));
-
-
     }
 }

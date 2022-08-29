@@ -6,6 +6,7 @@ import java.util.function.Predicate;
 public class ReportAccounting implements Report {
     public static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd:MM:yyyy HH:mm");
     public static final String SEPARATOR = System.lineSeparator();
+    public static final String CURRENCY = " RUB.";
 
     private Store store;
 
@@ -21,7 +22,7 @@ public class ReportAccounting implements Report {
             text.append(employee.getName()).append(";")
                     .append(DATE_FORMAT.format(employee.getHired().getTime())).append(";")
                     .append(DATE_FORMAT.format(employee.getFired().getTime())).append(";")
-                    .append((int) employee.getSalary()).append(" RUB.").append(";")
+                    .append((int) employee.getSalary()).append(CURRENCY).append(";")
                     .append(SEPARATOR);
         }
         return text.toString();
