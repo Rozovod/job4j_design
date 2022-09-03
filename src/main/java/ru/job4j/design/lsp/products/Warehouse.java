@@ -20,11 +20,8 @@ public class Warehouse implements Store {
 
     @Override
     public boolean checkExpDate(Food food) {
-        boolean rsl = false;
-        if (LocalDate.now().isBefore(food.getExpiryDate())) {
-            rsl = consumedTimeInPercent(food) < WAREHOUSE;
-        }
-        return rsl;
+        return LocalDate.now().isBefore(food.getExpiryDate())
+                && consumedTimeInPercent(food) < WAREHOUSE;
     }
 
     @Override
