@@ -11,14 +11,14 @@ class ControlQualityTest {
 
     @Test
     public void whenAddDifferent() {
-        Food milk = new Milk("Milk", LocalDate.of(2022, 9, 6),
-                LocalDate.of(2022, 9, 1), 150.00, 30);
-        Food buckwheat = new Buckwheat("Buckwheat", LocalDate.of(2022, 9, 20),
-                LocalDate.of(2022, 9, 1), 120.00, 30);
-        Food bananaTrash = new Banana("Banana", LocalDate.of(2022, 8, 23),
-                LocalDate.of(2022, 8, 1), 60, 50);
-        Food bananaSale = new Banana("Banana", LocalDate.of(2022, 9, 7),
-                LocalDate.of(2022, 8, 20), 60, 50);
+        Food milk = new Milk("Milk", LocalDate.now().plusDays(3),
+                LocalDate.now().minusDays(2), 150.00, 30);
+        Food buckwheat = new Buckwheat("Buckwheat", LocalDate.now().plusDays(17),
+                LocalDate.now().minusDays(2), 120.00, 30);
+        Food bananaTrash = new Banana("Banana", LocalDate.now().minusDays(6),
+                LocalDate.now().minusDays(36), 60, 50);
+        Food bananaSale = new Banana("Banana", LocalDate.now().plusDays(4),
+                LocalDate.now().minusDays(15), 60, 50);
         Warehouse warehouse = new Warehouse();
         Shop shop = new Shop();
         Trash trash = new Trash();
