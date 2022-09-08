@@ -48,8 +48,12 @@ public abstract class AbstractCar {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         AbstractCar that = (AbstractCar) o;
         return number == that.number && size == that.size && Objects.equals(name, that.name);
     }
