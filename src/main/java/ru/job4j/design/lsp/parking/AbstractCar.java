@@ -1,5 +1,7 @@
 package ru.job4j.design.lsp.parking;
 
+import java.util.Objects;
+
 public abstract class AbstractCar {
     private String name;
     private int number;
@@ -42,5 +44,18 @@ public abstract class AbstractCar {
                 + ", number=" + number
                 + ", size=" + size
                 + '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AbstractCar that = (AbstractCar) o;
+        return number == that.number && size == that.size && Objects.equals(name, that.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, number, size);
     }
 }
