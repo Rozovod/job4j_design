@@ -26,4 +26,9 @@ public class Trash implements Store {
     public List<Food> getFoodsFromStore() {
         return new ArrayList<>(foodsTrash);
     }
+
+    @Override
+    public void clear() {
+        foodsTrash.clear();
+    }
 }

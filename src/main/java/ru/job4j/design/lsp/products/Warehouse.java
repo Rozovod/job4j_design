@@ -28,4 +28,9 @@ public class Warehouse implements Store {
     public List<Food> getFoodsFromStore() {
         return new ArrayList<>(foodsWarehouse);
     }
+
+    @Override
+    public void clear() {
+        foodsWarehouse.clear();
+    }
 }

@@ -12,6 +12,8 @@ public interface Store {
 
     List<Food> getFoodsFromStore();
 
+    void clear();
+
     default int consumedTimeInPercent(Food food) {
         int passed = Period.between(food.getCreateDate(), LocalDate.now()).getDays();
         int exp = Period.between(food.getCreateDate(), food.getExpiryDate()).getDays();

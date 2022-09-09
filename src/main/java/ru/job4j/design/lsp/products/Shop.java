@@ -34,4 +34,9 @@ public class Shop implements Store {
     public List<Food> getFoodsFromStore() {
         return new ArrayList<>(foodsShop);
     }
+
+    @Override
+    public void clear() {
+        foodsShop.clear();
+    }
 }
