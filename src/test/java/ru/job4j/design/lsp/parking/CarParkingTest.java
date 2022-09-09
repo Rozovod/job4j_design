@@ -42,4 +42,12 @@ class CarParkingTest {
         assertThat(parking.park(middleTruck)).isTrue();
         assertThat(parking.park(bigTruck)).isFalse();
     }
+
+    @Test
+    public void whenParkDuplicate() {
+        assertThat(parking.park(passCarFirst)).isTrue();
+        assertThat(parking.park(smallTruck)).isTrue();
+        assertThat(parking.park(passCarFirst)).isFalse();
+        assertThat(parking.park(smallTruck)).isFalse();
+    }
 }
