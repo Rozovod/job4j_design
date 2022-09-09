@@ -2,7 +2,6 @@ package ru.job4j.design.lsp.products;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class ControlQuality {
     public List<Store> stores;
