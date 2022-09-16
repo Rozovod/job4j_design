@@ -7,7 +7,7 @@ import java.io.PrintStream;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
-import static ru.job4j.ood.isp.menu.SimpleMenuPrinter.*;
+import static ru.job4j.ood.isp.menu.ConsoleMenuPrinter.*;
 
 class SimpleMenuTest {
     public static final ActionDelegate STUB_ACTION = System.out::println;
@@ -60,7 +60,7 @@ class SimpleMenuTest {
                 .append(INDENTS.repeat(2)).append(SPACE).append("Купить хлеб 1.1.1.").append(SEPARATOR)
                 .append(INDENTS.repeat(2)).append(SPACE).append("Купить молоко 1.1.2.").append(SEPARATOR)
                 .append(SPACE).append("Покормить собаку 2.").append(SEPARATOR);
-        new SimpleMenuPrinter().print(menu);
+        new ConsoleMenuPrinter().print(menu);
         assertThat(out.toString()).isEqualTo(builder.toString());
     }
 }

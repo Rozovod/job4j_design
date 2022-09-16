@@ -1,6 +1,6 @@
 package ru.job4j.ood.isp.menu;
 
-public class SimpleMenuPrinter implements MenuPrinter {
+public class ConsoleMenuPrinter implements MenuPrinter {
     public static final String INDENTS = "----";
     public static final String SPACE = " ";
 

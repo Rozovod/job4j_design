@@ -1,13 +1,23 @@
-Добро пожаловать в чат-бот! Введите ваше сообщение: 
-Пользователь: привет
-Бот: Пустая бочка пуще гремит.
-Пользователь: да
-Бот: Тихие воды глубоки.
-Пользователь: стоп
-Пользователь: и
-Пользователь: ку
-Пользователь: продолжить
-Бот: Где тонко, там и рвется.
-Пользователь: ес
-Бот: Придет осень, за все спросит.
-Пользователь: закончить
+[0.015s][info][gc] Using Serial
+[19.844s][info][gc] GC(0) Pause Young (Allocation Failure) 4M->2M(15M) 11.868ms
+[20.069s][info][gc] GC(1) Pause Young (Allocation Failure) 6M->2M(15M) 5.646ms
+[20.258s][info][gc] GC(2) Pause Young (Allocation Failure) 7M->4M(15M) 4.988ms
+[20.793s][info][gc] GC(3) Pause Young (Allocation Failure) 8M->4M(15M) 2.664ms
+[23.421s][info][gc] GC(4) Pause Young (Allocation Failure) 8M->5M(15M) 11.180ms
+[57.116s][info][gc] GC(5) Pause Young (Allocation Failure) 9M->5M(15M) 7.587ms
+[57.233s][info][gc] GC(6) Pause Young (Allocation Failure) 9M->9M(15M) 4.915ms
+[57.250s][info][gc] GC(7) Pause Young (Allocation Failure) 13M->13M(15M) 0.028ms
+[57.294s][info][gc] GC(8) Pause Full (Allocation Failure) 13M->11M(15M) 43.493ms
+[57.366s][info][gc] GC(9) Pause Full (Allocation Failure) 15M->8M(15M) 17.906ms
+[63.675s][info][gc] GC(10) Pause Young (Allocation Failure) 12M->12M(15M) 0.096ms
+[63.717s][info][gc] GC(11) Pause Full (Allocation Failure) 12M->7M(15M) 41.460ms
+[100.735s][info][gc] GC(12) Pause Young (Allocation Failure) 11M->7M(15M) 15.276ms
+[122.645s][info][gc] GC(13) Pause Young (Allocation Failure) 11M->9M(15M) 5.930ms
+[122.671s][info][gc] GC(14) Pause Young (Allocation Failure) 13M->13M(15M) 0.035ms
+[122.716s][info][gc] GC(15) Pause Full (Allocation Failure) 13M->8M(15M) 45.494ms
+[122.743s][info][gc] GC(16) Pause Young (Allocation Failure) 12M->15M(15M) 9.927ms
+[122.762s][info][gc] GC(17) Pause Full (Allocation Failure) 15M->8M(15M) 18.664ms
+[122.777s][info][gc] GC(18) Pause Young (Allocation Failure) 12M->12M(15M) 0.030ms
+[122.794s][info][gc] GC(19) Pause Full (Allocation Failure) 12M->8M(15M) 17.563ms
+[148.029s][info][gc] GC(20) Pause Young (Allocation Failure) 12M->12M(15M) 0.163ms
+[148.089s][info][gc] GC(21) Pause Full (Allocation Failure) 12M->5M(15M) 59.032ms
