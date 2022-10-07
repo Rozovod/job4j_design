@@ -107,7 +107,7 @@ create or replace function tax_increase_row()
 $$
     BEGIN
         update products
-        set price = price + price * 0.2
+        new.price = new.price + new.price * 0.2
         where id = new.id;
         return new;
     END;
