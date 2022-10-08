@@ -106,9 +106,7 @@ create or replace function tax_increase_row()
     returns trigger as
 $$
     BEGIN
-        update products
-        new.price = new.price + new.price * 0.2
-        where id = new.id;
+        new.price = new.price + new.price * 0.2;
         return new;
     END;
 $$
